@@ -1,95 +1,299 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import React, { useState, useEffect } from 'react';
+
+
+function App() {
+  const [activeNav, setActiveNav] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveNav(id);
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section');
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveNav(entry.target.id);
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach(section => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="school-landing-page">
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+
+
+      <header className="header">
+        <div className="container">
+          <div className="logo">
+            <i className="fas fa-graduation-cap logo-icon"></i> Ifeoluwa Group Of Schools
+          </div>
+          <nav>
+            <ul className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+              <li><a href="#hero" onClick={() => scrollToSection('hero')} className={activeNav === 'hero' ? 'active' : ''}>Home</a></li>
+              <li><a href="#about" onClick={() => scrollToSection('about')} className={activeNav === 'about' ? 'active' : ''}>About Us</a></li>
+              <li><a href="#programs" onClick={() => scrollToSection('programs')} className={activeNav === 'programs' ? 'active' : ''}>Programs</a></li>
+              <li><a href="#activities" onClick={() => scrollToSection('activities')} className={activeNav === 'activities' ? 'active' : ''}>Activities</a></li>
+              <li><a href="#admissions" onClick={() => scrollToSection('admissions')} className={activeNav === 'admissions' ? 'active' : ''}>Admissions</a></li>
+              <li><a href="#contact" onClick={() => scrollToSection('contact')} className={activeNav === 'contact' ? 'active' : ''}>Contact</a></li>
+            </ul>
+            <div className="menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <span className={isMobileMenuOpen ? 'open' : ''}></span>
+              <span className={isMobileMenuOpen ? 'open' : ''}></span>
+              <span className={isMobileMenuOpen ? 'open' : ''}></span>
+            </div>
+          </nav>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section id="hero" className="hero">
+        <div className="hero-content">
+          <h1>Igniting Minds, Building Futures</h1>
+          <p>
+            Welcome to Future Scholars Academy, where academic excellence meets holistic development.
+            Join us to embark on a journey of discovery, growth, and lifelong learning.
+          </p>
+          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply Now</a>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section id="about" className="about">
+        <div className="container">
+          <h2 className="section-title">About Our Academy</h2>
+          <div className="about-content">
+            <div className="about-text">
+              <h3>Our Vision for Excellence</h3>
+              <p>
+                Future Scholars Academy is committed to providing a nurturing and stimulating environment
+                where every student can thrive. We believe in fostering critical thinking, creativity,
+                and a passion for learning. Our dedicated educators go beyond textbooks to inspire
+                students to reach their full potential.
+              </p>
+              <p>
+                Founded on principles of integrity and innovation, we offer a comprehensive curriculum
+                designed to prepare students not just for examinations, but for life's challenges.
+                We emphasize a balanced approach, integrating rigorous academics with character development,
+                arts, and sports.
+              </p>
+              <a href="#contact" onClick={() => scrollToSection('contact')} className="btn btn-secondary">Learn More</a>
+            </div>
+            <div className="about-image">
+              <img src="https://placehold.co/600x400/2196F3/ffffff?text=Happy+Students" alt="Happy students learning" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Programs Section */}
+      <section id="programs" className="programs">
+        <div className="container">
+          <h2 className="section-title">Our Academic Programs</h2>
+          <div className="grid-container">
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-child"></i></div>
+              <h3>Early Years Foundation</h3>
+              <p>Engaging and play-based learning for our youngest scholars, building foundational skills.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-book-open"></i></div>
+              <h3>Primary School Curriculum</h3>
+              <p>A broad and balanced curriculum focusing on core subjects and intellectual curiosity.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-flask"></i></div>
+              <h3>Secondary School Excellence</h3>
+              <p>Challenging academics, specialized subjects, and preparation for higher education.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-globe"></i></div>
+              <h3>International Baccalaureate</h3>
+              <p>Rigorous global program fostering critical thinking and interdisciplinary understanding.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Extracurricular Activities Section */}
+      <section id="activities" className="activities">
+        <div className="container">
+          <h2 className="section-title">Enriching Extracurricular Activities</h2>
+          <div className="grid-container">
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-futbol"></i></div>
+              <h3>Sports & Athletics</h3>
+              <p>Develop teamwork, discipline, and physical fitness through various sports.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-palette"></i></div>
+              <h3>Arts & Creativity</h3>
+              <p>Explore passions in music, drama, visual arts, and design.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-robot"></i></div>
+              <h3>STEM & Robotics</h3>
+              <p>Engage in hands-on science, technology, engineering, and mathematics projects.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-leaf"></i></div>
+              <h3>Community Service</h3>
+              <p>Foster social responsibility and make a positive impact on the world.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Admissions Section */}
+      <section id="admissions" className="admissions">
+        <div className="container">
+          <h2 className="section-title">Admissions Process</h2>
+          <div className="grid-container">
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-file-alt"></i></div>
+              <h3>Step 1: Inquiry & Application</h3>
+              <p>Submit your online application form and required documents.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-calendar-alt"></i></div>
+              <h3>Step 2: Assessment & Interview</h3>
+              <p>Schedule an assessment for your child and a parent interview.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-check-circle"></i></div>
+              <h3>Step 3: Offer & Enrollment</h3>
+              <p>Receive our offer of admission and complete the enrollment process.</p>
+            </div>
+            <div className="grid-item">
+              <div className="icon"><i className="fas fa-school"></i></div>
+              <h3>Step 4: Welcome to School</h3>
+              <p>Join our school community and begin your exciting academic journey!</p>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <p>Ready to join our family? Contact our admissions team for more details.</p>
+            <a href="#contact" onClick={() => scrollToSection('contact')} className="btn">Contact Admissions</a>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="testimonials">
+        <div className="container">
+          <h2 className="section-title">What Our Community Says</h2>
+          <div className="testimonial-carousel">
+            <div className="testimonial-card">
+              <p>"Future Scholars Academy has transformed my child's perspective on learning. The teachers are incredible and truly care about each student's success."</p>
+              <div className="author">- Jane Doe, Parent</div>
+            </div>
+            <div className="testimonial-card">
+              <p>"The extracurricular activities here are fantastic! I've been able to pursue my passion for robotics and still excel in my studies."</p>
+              <div className="author">- Alex Smith, Student</div>
+            </div>
+            <div className="testimonial-card">
+              <p>"As an alumni, I can confidently say that the foundation I received at Future Scholars Academy prepared me exceptionally well for university and my career."</p>
+              <div className="author">- Dr. Emily White, Alumni</div>
+            </div>
+            <div className="testimonial-card">
+              <p>"The supportive environment and innovative teaching methods make Future Scholars Academy truly stand out. Highly recommend!"</p>
+              <div className="author">- Michael Brown, Parent</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="contact">
+        <div className="container">
+          <h2 className="section-title">Get in Touch</h2>
+          <div className="contact-content">
+            <div className="contact-info">
+              <h3>Our Location</h3>
+              <p><i className="fas fa-map-marker-alt icon"></i> 123 Academy Lane, Schoolville, ST 12345</p>
+              <p><i className="fas fa-phone icon"></i> +1 (123) 456-7890</p>
+              <p><i className="fas fa-envelope icon"></i> info@futurescholars.edu</p>
+              <p><i className="fas fa-clock icon"></i> Mon - Fri: 8:00 AM - 4:00 PM</p>
+
+              <h3 style={{ marginTop: '30px' }}>Visit Us</h3>
+              <p>We welcome you to visit our campus and experience the vibrant atmosphere of Future Scholars Academy. Please schedule an appointment in advance.</p>
+            </div>
+            <div className="contact-form">
+              <h3>Send Us a Message</h3>
+              <form onSubmit={(e) => e.preventDefault()}> {/* Prevent default form submission for demo */}
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+
+                <label htmlFor="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label htmlFor="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required />
+
+                <label htmlFor="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" className="btn">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="footer">
+        <div className="container">
+          <div className="logo">
+            <i className="fas fa-graduation-cap logo-icon"></i> Future Scholars Academy
+          </div>
+          <ul className="footer-nav">
+            <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
+            <li><a href="#programs" onClick={() => scrollToSection('programs')}>Programs</a></li>
+            <li><a href="#admissions" onClick={() => scrollToSection('admissions')}>Admissions</a></li>
+            <li><a href="#testimonials" onClick={() => scrollToSection('testimonials')}>Testimonials</a></li>
+            <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+          <div className="social-links">
+            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+          </div>
+          <p>&copy; 2024 Future Scholars Academy. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   );
 }
+
+export default App;
