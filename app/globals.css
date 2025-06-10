@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
         :root {
-          --primary-color: #4CAF50; /* Green */
+          --primary-color: #936a3e; /* Green */
           --secondary-color: #2196F3; /* Blue */
           --accent-color: #FFC107; /* Amber */
           --text-dark: #333;
@@ -48,6 +48,16 @@
 
         p {
           margin-bottom: 1em;
+        }
+
+        ul {
+          list-style: disc;
+          margin-left: 20px;
+          margin-bottom: 1em;
+        }
+
+        ul li {
+          margin-bottom: 0.5em;
         }
 
         a {
@@ -110,6 +120,7 @@
           color: var(--primary-color);
           display: flex;
           align-items: center;
+          font-weight: bolder;
         }
 
         .logo-icon {
@@ -368,6 +379,100 @@
           font-size: 1.05em;
         }
 
+        /* Leadership Slider */
+        .leadership-slider {
+          position: relative;
+          width: 100%;
+          max-width: 800px;
+          margin: 0 auto;
+          overflow: hidden; /* Hide overflowing cards */
+          border-radius: var(--border-radius);
+          box-shadow: var(--box-shadow);
+          background-color: var(--bg-light);
+          padding: 20px;
+          text-align: center;
+          min-height: 400px; /* Ensure slider has enough height */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .leader-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 30px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition for slides */
+          pointer-events: none; /* Disable interaction on non-active slides */
+        }
+
+        .leader-card.active {
+          opacity: 1;
+          position: relative; /* Active slide takes up space */
+          pointer-events: auto; /* Enable interaction on active slide */
+          transform: translateX(0); /* Ensure active slide is centered */
+        }
+
+        .leader-image {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-bottom: 20px;
+          border: 4px solid var(--primary-color);
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .leader-name {
+          font-size: 1.8em;
+          font-weight: 700;
+          color: var(--secondary-color);
+          margin-bottom: 5px;
+        }
+
+        .leader-title {
+          font-size: 1.2em;
+          color: #777;
+          margin-bottom: 15px;
+        }
+
+        .leader-bio {
+          max-width: 600px;
+          font-size: 1em;
+          line-height: 1.8;
+          color: var(--text-dark);
+        }
+
+        .slider-controls {
+          margin-top: 30px;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        .slider-controls button {
+          background-color: var(--primary-color);
+          color: var(--text-light);
+          border: none;
+          padding: 10px 20px;
+          border-radius: var(--border-radius);
+          cursor: pointer;
+          font-size: 1.1em;
+          transition: background-color var(--transition-speed), transform var(--transition-speed);
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .slider-controls button:hover {
+          background-color: #45a049;
+          transform: translateY(-2px);
+        }
+
         /* Contact Section */
         .contact-content {
           display: flex;
@@ -551,6 +656,28 @@
           .contact-content {
             flex-direction: column;
           }
+
+          .leadership-slider {
+            max-width: 90%;
+            padding: 15px;
+          }
+
+          .leader-image {
+            width: 120px;
+            height: 120px;
+          }
+
+          .leader-name {
+            font-size: 1.5em;
+          }
+
+          .leader-title {
+            font-size: 1em;
+          }
+
+          .leader-bio {
+            font-size: 0.9em;
+          }
         }
 
         @media (max-width: 480px) {
@@ -582,5 +709,10 @@
           .testimonial-card {
             flex: 0 0 90%; /* Take 90% width on very small screens */
             margin: 0 5%;
+          }
+
+          .slider-controls button {
+            padding: 8px 15px;
+            font-size: 1em;
           }
         }
