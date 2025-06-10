@@ -83,7 +83,7 @@ function App() {
             Welcome to Future Scholars Academy, where academic excellence meets holistic development.
             Join us to embark on a journey of discovery, growth, and lifelong learning.
           </p>
-          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply Now</a>
+          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply For Admission</a>
         </div>
       </section>
 
@@ -144,7 +144,7 @@ function App() {
         </div>
       </section>
 
-      {/* Extracurricular Activities Section */}
+      {/* Extracurricular Activities Section
       <section id="activities" className="activities">
         <div className="container">
           <h2 className="section-title">Enriching Extracurricular Activities</h2>
@@ -173,7 +173,7 @@ function App() {
         </div>
       </section>
 
-      {/* Admissions Section */}
+      {/* Admissions Section 
       <section id="admissions" className="admissions">
         <div className="container">
           <h2 className="section-title">Admissions Process</h2>
@@ -206,7 +206,7 @@ function App() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section 
       <section id="testimonials" className="testimonials">
         <div className="container">
           <h2 className="section-title">What Our Community Says</h2>
@@ -230,7 +230,7 @@ function App() {
           </div>
         </div>
       </section>
-
+*/}
       {/* Contact Section */}
       <section id="contact" className="contact">
         <div className="container">
@@ -248,7 +248,7 @@ function App() {
             </div>
             <div className="contact-form">
               <h3>Send Us a Message</h3>
-              <form onSubmit={(e) => e.preventDefault()}> {/* Prevent default form submission for demo */}
+              <form onSubmit={(e) => e.preventDefault()}>
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name" required />
 
@@ -272,7 +272,7 @@ function App() {
       <footer className="footer">
         <div className="container">
           <div className="logo">
-            <i className="fas fa-graduation-cap logo-icon"></i> Future Scholars Academy
+            <i className="fas fa-graduation-cap logo-icon"></i> Ifeoluwa Group Of Schools
           </div>
           <ul className="footer-nav">
             <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
@@ -285,11 +285,10 @@ function App() {
           </ul>
           <div className="social-links">
             <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
             <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Tik-Tok"><i className="fab fa-tiktok"></i></a>
           </div>
-          <p>&copy; 2024 Future Scholars Academy. All rights reserved.</p>
+          <p>&copy; 2024 Ifeoluwa Group Of Schools. All rights reserved.</p>
         </div>
       </footer>
     </div>
