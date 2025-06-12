@@ -16,8 +16,10 @@ const Navbar = ({
               <li><a href="#hero" onClick={() => scrollToSection('hero')} className={activeNav === 'hero' ? 'active' : ''}>Home</a></li>
               <li><a href="#about" onClick={() => scrollToSection('about')} className={activeNav === 'about' ? 'active' : ''}>About Us</a></li>
               <li><a href="#programs" onClick={() => scrollToSection('programs')} className={activeNav === 'programs' ? 'active' : ''}>Programs</a></li>
-              <li><a href="#leadership" onClick={() => scrollToSection('leadership')} className={activeNav === 'leadership' ? 'active' : ''}>Leadership</a></li>
+              <li><a href="#leadership" onClick={() => scrollToSection('leadership')} className={activeNav === 'leadership' ? 'active' : ''}>Management</a></li>
               <li><a href="#contact" onClick={() => scrollToSection('contact')} className={activeNav === 'contact' ? 'active' : ''}>Contact</a></li>
+              <li><a href="#blog" onClick={() => scrollToSection('blog')} className={activeNav === 'blog' ? 'active' : ''}>Blog/News</a></li>
+              <li><a href="#faq" onClick={() => scrollToSection('faq')} className={activeNav === 'faq' ? 'active' : ''}>FAQ</a></li>
             </ul>
             <div className="menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <span className={isMobileMenuOpen ? 'open' : ''}></span>
