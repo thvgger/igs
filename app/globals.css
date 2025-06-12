@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
         :root {
-          --primary-color: #936a3e; /* Green */
-          --secondary-color: #2196F3; /* Blue */
-          --accent-color: #FFC107; /* Amber */
+          --primary-color: #936a3e;
+          --secondary-color: #2196F3;
+          --accent-color: #FFC107;
           --text-dark: #333;
           --text-light: #f4f4f4;
           --bg-light: #ffffff;
-          --bg-dark: #2c3e50; /* Dark blue-gray for sections */
+          --bg-dark: #2c3e50;
+          --primary-hover: #674b2d;
           --border-radius: 8px;
           --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           --transition-speed: 0.3s;
@@ -86,8 +87,9 @@
         }
 
         .btn:hover {
-          background-color: #45a049; /* Slightly darker green */
+          background-color: var(--primary-hover);
           transform: translateY(-2px);
+          color: var(--text-light);
         }
 
         .btn.btn-secondary {
@@ -95,7 +97,7 @@
         }
 
         .btn.btn-secondary:hover {
-          background-color: #1976D2; /* Slightly darker blue */
+          background-color: #1976D2;
         }
 
         /* Header */
@@ -469,7 +471,7 @@
         }
 
         .slider-controls button:hover {
-          background-color: #45a049;
+          background-color: var(--primary-hover);
           transform: translateY(-2px);
         }
 

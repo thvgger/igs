@@ -154,7 +154,7 @@ function App() {
               <li><a href="#hero" onClick={() => scrollToSection('hero')} className={activeNav === 'hero' ? 'active' : ''}>Home</a></li>
               <li><a href="#about" onClick={() => scrollToSection('about')} className={activeNav === 'about' ? 'active' : ''}>About Us</a></li>
               <li><a href="#programs" onClick={() => scrollToSection('programs')} className={activeNav === 'programs' ? 'active' : ''}>Programs</a></li>
-              <li><a href="#activities" onClick={() => scrollToSection('activities')} className={activeNav === 'activities' ? 'active' : ''}>Activities</a></li>
+              {/*<li><a href="#activities" onClick={() => scrollToSection('activities')} className={activeNav === 'activities' ? 'active' : ''}>Activities</a></li>*/}
               <li><a href="#leadership" onClick={() => scrollToSection('leadership')} className={activeNav === 'leadership' ? 'active' : ''}>Leadership</a></li>
               <li><a href="#admissions" onClick={() => scrollToSection('admissions')} className={activeNav === 'admissions' ? 'active' : ''}>Admissions</a></li>
               <li><a href="#contact" onClick={() => scrollToSection('contact')} className={activeNav === 'contact' ? 'active' : ''}>Contact</a></li>
@@ -178,7 +178,7 @@ function App() {
             Welcome to Ifeoluwa Group Of Schools, where academic excellence meets holistic development.
             Join us to embark on a journey of discovery, growth, and lifelong learning.
           </p>
-          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply Now</a>
+          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply For Admission Now</a>
         </div>
       </section>
 
@@ -190,7 +190,7 @@ function App() {
             <div className="about-text">
               <h3>Our Vision for Excellence</h3>
               <p>
-                Future Scholars Academy is committed to providing a nurturing and stimulating environment
+                Ifeoluwa Group Of Schools is committed to providing a nurturing and stimulating environment
                 where every student can thrive. We believe in fostering critical thinking, creativity,
                 and a passion for learning. Our dedicated educators go beyond textbooks to inspire
                 students to reach their full potential.
@@ -384,7 +384,7 @@ function App() {
               <p><i className="fas fa-clock icon"></i> Mon - Fri: 8:00 AM - 4:00 PM</p>
 
               <h3 style={{ marginTop: '30px' }}>Visit Us</h3>
-              <p>We welcome you to visit our school and experience the vibrant atmosphere of Future Scholars Academy. Please schedule an appointment in advance.</p>
+              <p>We welcome you to visit our school and experience the vibrant atmosphere of Ifeoluwa Group Of Schools. Please schedule an appointment in advance.</p>
             </div>
             <div className="contact-form">
               <h3>Send Us a Message</h3>
@@ -412,7 +412,7 @@ function App() {
       <footer className="footer">
         <div className="container">
           <div className="logo">
-            <i className="fas fa-graduation-cap logo-icon"></i> Future Scholars Academy
+            <i className="fas fa-graduation-cap logo-icon"></i> Ifeoluwa Group Of Schools
           </div>
           <ul className="footer-nav">
             <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
@@ -432,7 +432,7 @@ function App() {
             <a href="#" aria-label="instagram"><i className="fab fa-instagram"></i></a>
             <a href="#" aria-label="Tik-Tok"><i className="fab fa-tiktok"></i></a>
           </div>
-          <p>&copy; 2024 Future Scholars Academy. All rights reserved.</p>
+          <p>&copy; 2024 Ifeoluwa Group Of Schools. All rights reserved.</p>
         </div>
       </footer>
     </div>
