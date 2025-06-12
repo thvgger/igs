@@ -159,7 +159,7 @@ function App() {
             Welcome to Ifeoluwa Group Of Schools, where academic excellence meets holistic development.
             Join us to embark on a journey of discovery, growth, and lifelong learning.
           </p>
-          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply For Admission Now</a>
+          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply For testing Admission Now</a>
         </div>
       </section>
 
@@ -392,7 +392,7 @@ function App() {
       {/* Footer Section */}
 
       <Footer />
-      
+
     </div>
   );
 }
