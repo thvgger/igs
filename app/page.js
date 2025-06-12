@@ -1,10 +1,10 @@
-"use client"; // This directive marks the component as a client component for Next.js App Router
+"use client";
 
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
-// Main App component for the school landing page
+
 function App() {
   const [activeNav, setActiveNav] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -101,23 +101,24 @@ function App() {
     setTouchEndX(0);
   };
 
-  // Smooth scrolling for navigation links
+
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setActiveNav(id);
-      setIsMobileMenuOpen(false); // Close mobile menu after clicking a link
+      setIsMobileMenuOpen(false);
     }
   };
 
-  // Effect to handle intersection observer for active navigation highlighting
+
   useEffect(() => {
     const sections = document.querySelectorAll('section');
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.3 // Adjust threshold as needed
+      threshold: 0.3
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -145,11 +146,13 @@ function App() {
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
 
-      
 
-      {/* Header Section */}
-
-      <Navbar />
+      <Navbar
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+        activeNav={activeNav}
+        scrollToSection={scrollToSection}
+      />
 
       {/* Hero Section */}
       <section id="hero" className="hero">
@@ -159,7 +162,7 @@ function App() {
             Welcome to Ifeoluwa Group Of Schools, where academic excellence meets holistic development.
             Join us to embark on a journey of discovery, growth, and lifelong learning.
           </p>
-          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply For testing Admission Now</a>
+          <a href="#admissions" onClick={() => scrollToSection('admissions')} className="btn">Apply For Admission Now</a>
         </div>
       </section>
 
@@ -176,17 +179,6 @@ function App() {
                 and a passion for learning. Our dedicated educators go beyond textbooks to inspire
                 students to reach their full potential.
               </p>
-
-
-              {/*<p>
-                Founded on principles of integrity and innovation, we offer a comprehensive curriculum
-                designed to prepare students not just for examinations, but for life's challenges.
-                We emphasize a balanced approach, integrating rigorous academics with character development,
-                arts, and sports.
-              </p>*/}
-
-
-              {/* Mission Statements Added Here */}
               <h3>Mission Statements</h3>
               <ul>
                 <li>To raise God fearing Students</li>
@@ -231,35 +223,6 @@ function App() {
         </div>
       </section>
 
-      {/* Extracurricular Activities Section 
-      <section id="activities" className="activities">
-        <div className="container">
-          <h2 className="section-title">Enriching Extracurricular Activities</h2>
-          <div className="grid-container">
-            <div className="grid-item">
-              <div className="icon"><i className="fas fa-futbol"></i></div>
-              <h3>Sports & Athletics</h3>
-              <p>Develop teamwork, discipline, and physical fitness through various sports.</p>
-            </div>
-            <div className="grid-item">
-              <div className="icon"><i className="fas fa-palette"></i></div>
-              <h3>Arts & Creativity</h3>
-              <p>Explore passions in music, drama, visual arts, and design.</p>
-            </div>
-            <div className="grid-item">
-              <div className="icon"><i className="fas fa-robot"></i></div>
-              <h3>STEM & Robotics</h3>
-              <p>Engage in hands-on science, technology, engineering, and mathematics projects.</p>
-            </div>
-            <div className="grid-item">
-              <div className="icon"><i className="fas fa-leaf"></i></div>
-              <h3>Community Service</h3>
-              <p>Foster social responsibility and make a positive impact on the world.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Leadership Slider Section */}
       <section id="leadership" className="leadership">
         <div className="container">
@@ -294,64 +257,7 @@ function App() {
         </div>
       </section>
 
-      {/* Admissions Section 
-      <section id="admissions" className="admissions">
-        <div className="container">
-          <h2 className="section-title">Admissions Process</h2>
-          <div className="grid-container">
-            <div className="grid-item">
-              <div className="icon"><i className="fas fa-file-alt"></i></div>
-              <h3>Step 1: Inquiry & Application</h3>
-              <p>Submit your online application form and required documents.</p>
-            </div>
-            <div className="grid-item">
-              <div className="icon"><i className="fas fa-calendar-alt"></i></div>
-              <h3>Step 2: Assessment & Interview</h3>
-              <p>Schedule an assessment for your child and a parent interview.</p>
-            </div>
-            <div className="grid-item">
-              <div className="icon"><i className="fas fa-check-circle"></i></div>
-              <h3>Step 3: Offer & Enrollment</h3>
-              <p>Receive our offer of admission and complete the enrollment process.</p>
-            </div>
-            <div className="grid-item">
-              <div className="icon"><i className="fas fa-school"></i></div>
-              <h3>Step 4: Welcome to School</h3>
-              <p>Join our school community and begin your exciting academic journey!</p>
-            </div>
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <p>Ready to join our family? Contact our admissions team for more details.</p>
-            <a href="#contact" onClick={() => scrollToSection('contact')} className="btn">Contact Admissions</a>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section 
-      <section id="testimonials" className="testimonials">
-        <div className="container">
-          <h2 className="section-title">What Our Community Says</h2>
-          <div className="testimonial-carousel">
-            <div className="testimonial-card">
-              <p>"Future Scholars Academy has transformed my child's perspective on learning. The teachers are incredible and truly care about each student's success."</p>
-              <div className="author">- Jane Doe, Parent</div>
-            </div>
-            <div className="testimonial-card">
-              <p>"The extracurricular activities here are fantastic! I've been able to pursue my passion for robotics and still excel in my studies."</p>
-              <div className="author">- Alex Smith, Student</div>
-            </div>
-            <div className="testimonial-card">
-              <p>"As an alumni, I can confidently say that the foundation I received at Future Scholars Academy prepared me exceptionally well for university and my career."</p>
-              <div className="author">- Dr. Emily White, Alumni</div>
-            </div>
-            <div className="testimonial-card">
-              <p>"The supportive environment and innovative teaching methods make Future Scholars Academy truly stand out. Highly recommend!"</p>
-              <div className="author">- Michael Brown, Parent</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Contact Section */}
       <section id="contact" className="contact">
         <div className="container">
@@ -360,12 +266,12 @@ function App() {
             <div className="contact-info">
               <h3>Our Location</h3>
               <p><i className="fas fa-map-marker-alt icon"></i> 123 Academy Lane, Schoolville, ST 12345</p>
-              <p><i className="fas fa-phone icon"></i> +1 (123) 456-7890</p>
-              <p><i className="fas fa-envelope icon"></i> info@futurescholars.edu</p>
+              <p><i className="fas fa-phone icon"></i> +2348084163560</p>
+              <p><i className="fas fa-envelope icon"></i> info@ifeoluwagroupofschools.edu</p>
               <p><i className="fas fa-clock icon"></i> Mon - Fri: 8:00 AM - 4:00 PM</p>
 
               <h3 style={{ marginTop: '30px' }}>Visit Us</h3>
-              <p>We welcome you to visit our school and experience the vibrant atmosphere of Ifeoluwa Group Of Schools. Please schedule an appointment in advance.</p>
+              <p>We welcome you to visit our campus and experience the vibrant atmosphere of Ifeoluwa Group Of Schools. Please schedule an appointment in advance.</p>
             </div>
             <div className="contact-form">
               <h3>Send Us a Message</h3>
@@ -390,9 +296,7 @@ function App() {
       </section>
 
       {/* Footer Section */}
-
       <Footer />
-
     </div>
   );
 }
