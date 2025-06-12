@@ -1,6 +1,8 @@
 "use client"; // This directive marks the component as a client component for Next.js App Router
 
 import React, { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 // Main App component for the school landing page
 function App() {
@@ -143,32 +145,11 @@ function App() {
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
 
+      
+
       {/* Header Section */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-            <i className="fas fa-graduation-cap logo-icon"></i> Ifeoluwa Group Of Schools
-          </div>
-          <nav>
-            <ul className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-              <li><a href="#hero" onClick={() => scrollToSection('hero')} className={activeNav === 'hero' ? 'active' : ''}>Home</a></li>
-              <li><a href="#about" onClick={() => scrollToSection('about')} className={activeNav === 'about' ? 'active' : ''}>About Us</a></li>
-              <li><a href="#programs" onClick={() => scrollToSection('programs')} className={activeNav === 'programs' ? 'active' : ''}>Programs</a></li>
-              {/*<li><a href="#activities" onClick={() => scrollToSection('activities')} className={activeNav === 'activities' ? 'active' : ''}>Activities</a></li>*/}
-              <li><a href="#leadership" onClick={() => scrollToSection('leadership')} className={activeNav === 'leadership' ? 'active' : ''}>Leadership</a></li>
-              <li><a href="#admissions" onClick={() => scrollToSection('admissions')} className={activeNav === 'admissions' ? 'active' : ''}>Admissions</a></li>
-              <li><a href="#contact" onClick={() => scrollToSection('contact')} className={activeNav === 'contact' ? 'active' : ''}>Contact</a></li>
-              <li><a href="#faq" onClick={() => scrollToSection('faq')} className={activeNav === 'faq' ? 'active' : ''}>FAQ</a></li>
-              <li><a href="#blog" onClick={() => scrollToSection('blog')} className={activeNav === 'blog' ? 'active' : ''}>News/Blog</a></li>
-            </ul>
-            <div className="menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              <span className={isMobileMenuOpen ? 'open' : ''}></span>
-              <span className={isMobileMenuOpen ? 'open' : ''}></span>
-              <span className={isMobileMenuOpen ? 'open' : ''}></span>
-            </div>
-          </nav>
-        </div>
-      </header>
+
+      <Navbar />
 
       {/* Hero Section */}
       <section id="hero" className="hero">
@@ -409,32 +390,9 @@ function App() {
       </section>
 
       {/* Footer Section */}
-      <footer className="footer">
-        <div className="container">
-          <div className="logo">
-            <i className="fas fa-graduation-cap logo-icon"></i> Ifeoluwa Group Of Schools
-          </div>
-          <ul className="footer-nav">
-            <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
-            <li><a href="#programs" onClick={() => scrollToSection('programs')}>Programs</a></li>
-            <li><a href="#leadership" onClick={() => scrollToSection('leadership')}>Leadership</a></li>
-            <li><a href="#admissions" onClick={() => scrollToSection('admissions')}>Admissions</a></li>
-            <li><a href="#testimonials" onClick={() => scrollToSection('testimonials')}>Testimonials</a></li>
-            <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
-            <li><a href="#faq" onClick={() => scrollToSection('faq')}>FAQ</a></li>
-            <li><a href="#blog" onClick={() => scrollToSection('blog')}>Blog/News</a></li>
 
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-          </ul>
-          <div className="social-links">
-            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="instagram"><i className="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Tik-Tok"><i className="fab fa-tiktok"></i></a>
-          </div>
-          <p>&copy; 2024 Ifeoluwa Group Of Schools. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
+      
     </div>
   );
 }
