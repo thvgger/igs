@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
 
+
 function App() {
   const [activeNav, setActiveNav] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
