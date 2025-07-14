@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import ContactForm from '../components/Form'
 
 
 
@@ -274,24 +275,7 @@ function App() {
               <h3 style={{ marginTop: '30px' }}>Visit Us</h3>
               <p>We welcome you to visit our campus and experience the vibrant atmosphere of Ifeoluwa Group Of Schools. Please schedule an appointment in advance.</p>
             </div>
-            <div className="contact-form">
-              <h3>Send Us a Message</h3>
-              <form onSubmit={(e) => e.preventDefault()}> {/* Prevent default form submission for demo */}
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" required />
-
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-
-                <label htmlFor="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required />
-
-                <label htmlFor="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit" className="btn">Send Message</button>
-              </form>
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
