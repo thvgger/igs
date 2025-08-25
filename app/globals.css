@@ -1,3 +1,9 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
         :root {
@@ -12,12 +18,6 @@
           --border-radius: 8px;
           --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           --transition-speed: 0.3s;
-        }
-
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
         }
 
         html {
@@ -180,17 +180,40 @@
         }
 
         /* Hero Section */
-        .hero {
-          position: relative;
-          height: 80vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--text-light);
-          text-align: center;
-          overflow: hidden;
-          background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x1080/4CAF50/ffffff?text=School+Campus') no-repeat center center/cover;
-        }
+        /* public/styles/globals.css or your component-specific stylesheet */
+
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  text-align: center;
+  overflow: hidden;
+}
+
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  /* Apply the transparent overlay */
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1; /* Keep the background layers behind the content */
+}
+
+/* Active class to show the current image */
+.hero-bg-active {
+  opacity: 1;
+}
 
         .hero::before {
           content: '';
