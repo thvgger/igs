@@ -530,7 +530,7 @@ function App() {
                 <i className="fas fa-phone icon"></i> +2348084163560
               </p>
               <p>
-                <i className="fas fa-envelope icon"></i>{" "}
+                <i className="fas fa-envelope icon"></i>
                 info@ifeoluwagroupofschools.edu
               </p>
               <p>
